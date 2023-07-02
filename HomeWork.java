@@ -1,108 +1,95 @@
 
-// /********************************/
-// /**Арамаис Асланян**/
-// /*****79130010101@yandex.ru******/
-// /********************************/
+// // Task 1. Вычислить n-ое треугольного число (сумма чисел от 1 до n),
+// // n! (произведение чисел от 1 до n)
 
-// import java.util.Random;
+// import java.util.Scanner;
 
-// /*
-// 1. Выбросить случайное целое число в диапазоне от 0 до 2000 и сохранить в i.
-// 2. Посчитать и сохранить в n номер старшего значащего бита выпавшего числа.
-// 3. Найти все кратные n числа в диапазоне от i до Short.MAX_VALUE и сохранить
-// в массив m1.
-// 4. Найти все некратные n числа в диапазоне от Short.MIN_VALUE до i и
-// сохранить в массив m2.
-// */
-
-// public class HomeWork {
-
-// // Метод вызова автора
-// public static void author() {
-// System.out.println("================================");
-// System.out.println("=======Author programm: ========");
-// System.out.println("=Aramais Aslanyan=");
-// System.out.println("=====79130010101@yandex.ru======");
-// System.out.println("================================");
-// }
-
+// public class task_1 {
 // public static void main(String[] args) {
-// System.out.println("1. Toss a random integer in the range 0 to 2000 and store
-// it in i.\n" +
-// "2. Count and store in n the number of the highest significant bit of the
-// dropped number.\n" +
-// "3. Find all multiples of n in the range from i to Short.MAX_VALUE and store
-// in array m1.\n" +
-// "4. Find all non-multiples of n in the range from Short.MIN_VALUE to i and
-// store in m2.");
 
-// // Task 1.
-
-// Random random = new Random();
-// int i = random.nextInt(0, 2000);
-// System.out.println("1. Random number i = " + i);
-// System.out.println();
-
-// // Task 2.
-
-// int n = Integer.toBinaryString(i).length() - 1;
-// System.out.println("2. The number of the most significant bit n = " + n);
-// System.out.println();
-
-// // Task 3.
-
-// int numbers = 0;
-// for (int j = i; j <= Short.MAX_VALUE; j++) {
-// if (j % n == 0)
-// numbers++;
-// }
-// int[] m1 = new int[numbers];
-// numbers = 0;
-// System.out.print("3. m1 = [");
-// for (int j = i; j <= Short.MAX_VALUE; j++) {
-// if (j % n == 0) {
-// if (numbers == m1.length) {
-// m1[numbers] = j;
-// System.out.print(m1[numbers]);
-// numbers++;
-// } else {
-// m1[numbers] = j;
-// System.out.print(m1[numbers] + ", ");
-// numbers++;
-// }
-
+// Scanner sc = new Scanner(System.in);
+// System.out.println("");
+// System.out.print("Введите число (0-15): ");
+// int n = sc.nextInt();
+// int p = 1;
+// int t = 0;
+// if (n<16){
+// for (int i = 0; i <= n; i++) {
+// if (i != 0) {
+// p = p * i;
+// t = t + i;
 // }
 // }
-// System.out.println("]");
-// System.out.println("Total numbers in the array m1 = " + m1.length);
-// System.out.println();
-
-// // Task 4.
-
-// numbers = 0;
-// for (int j = Short.MIN_VALUE; j <= i; j++) {
-// if (j % n != 0)
-// numbers++;
+// System.out.printf("треугольное число = %d \n", p);
+// System.out.printf("произведение числа = %d\n", t);
+// sc.close();
 // }
-// int[] m2 = new int[numbers];
-// numbers = 0;
-// System.out.print("4. m2 = [");
-// for (int j = Short.MIN_VALUE; j <= i; j++) {
-// if (j % n != 0) {
-// if (numbers == m2.length) {
-// m2[numbers] = j;
-// System.out.print(m2[numbers]);
-// } else {
-// m2[numbers] = j;
-// System.out.print(m2[numbers] + ", ");
-// numbers++;
+// System.out.println("");
+// }
+// }25 changes:25 additions&0 deletions25 task_2.java @@-0,0+1,25 @@
+
+// // Task 2. Вывести все простые числа от 1 до 1000
+
+// import java.util.Scanner;
+
+// public class task_2 {
+// public static void main(String[] args) {
+
+// Scanner sc = new Scanner(System.in);
+// System.out.print("Введите число (0-10000): ");
+// int kont = sc.nextInt();
+// sc.close();
+// // int[] arr = new int[] {2,3,5,7};
+// for (int i = 1; i < kont; i++) {
+// if ((i % 2) != 0) {
+// if ((i % 3) != 0) {
+// if (i % 5 != 0) {
+// if (i % 7 != 0) {
+// System.out.printf(" %d\t", i);
 // }
 // }
 // }
-// System.out.println("]");
-// System.out.println("Total numbers in the array m2 = " + m2.length);
-// System.out.println();
+// }
+// }
+// }
+// }
+// // Task 3.Реализовать простой калькулятор
+// import java.util.Scanner;
 
-// author();
+// public class task_3 {
+// public static void main(String[] args) {
+// double num1;
+// double num2;
+// double ans;
+// char op;
+// Scanner reader = new Scanner(System.in);
+// System.out.println("\n");
+// System.out.print("Введите первое число: ");
+// num1 = reader.nextDouble();
+// System.out.print("Введите второе число: ");
+// num2 = reader.nextDouble();
+// System.out.print("\n Введите оператор (+, -, *, /): ");
+// op = reader.next().charAt(0);
+// reader.close();
+// switch (op) {
+// case '+':
+// ans = num1 + num2;
+// break;
+// case '-':
+// ans = num1 - num2;
+// break;
+// case '*':
+// ans = num1 * num2;
+// break;
+// case '/':
+// ans = num1 / num2;
+// break;
+// default:
+// System.out.printf("Такой оператор не используется");
+// return;
+// }
+// System.out.print("\n Результат равер : ");
+// System.out.printf(num1 + " " + op + " " + num2 + " = " + "%.2f", ans);
+// System.out.println("\n");
 // }
 // }
